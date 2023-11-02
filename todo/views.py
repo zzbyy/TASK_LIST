@@ -11,3 +11,8 @@ def home(request):
 class TaskList(generic.ListView):
     model = Task
     context_object_name = 'tasks'
+
+
+class TaskDetail(generic.DetailView):
+    model = Task
+    context_object_name = 'task'
