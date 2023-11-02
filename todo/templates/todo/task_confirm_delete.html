@@ -11,9 +11,14 @@
         <p><strong>{{ task }}</strong></p>
 		<p class="form-buttons">
 			<input type="submit" class="btn btn-primary" value="Delete">
-			<a href="{% url 'tasks'%}" class="btn btn-outline">Cancel</a>
+			<a href="{% url 'todo:tasks'%}" class="btn btn-outline">Cancel</a>
 		</p>
 	</form>
 </div>
 
 {%endblock content%}
+
+<!-- 
+	The DeleteView page displayed to a GET request uses a template_name_suffix of '_confirm_delete'.
+	Thus, this template name have to be task_confirm_delete.html.
+-->

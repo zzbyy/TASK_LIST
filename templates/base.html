@@ -11,11 +11,17 @@
     <body>
         <header class="header">
             <div class="container">
-                <a href="{% url 'home' %}" class="logo">Todo</a>
+                <a href="{% url 'todo:home' %}" class="logo">Todo</a>
                 <nav class="nav">
-                    <a href="{% url 'home' %}"><i class="bi bi-house-fill"></i> Home</a>
-                    <a href="{% url 'tasks' %}"><i class="bi bi-list-task"></i> My Tasks</a>
-                    <a href="{% url 'task_create' %}"><i class="bi bi-plus"></i> Create Task</a>
+                    <a href="{% url 'todo:home' %}"><i class="bi bi-house-fill"></i> Home</a>
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'todo:tasks' %}"><i class="bi bi-list-task"></i> My Tasks</a>
+                        <a href="{% url 'todo:task_create' %}"><i class="bi bi-plus"></i> Create Task</a>
+                        <a href="#">Hi {{ request.user | title }}</a>
+                        <a href="{% url 'users:logout' %}"><i class="bi bi-box-arrow-right"></i> Logout</a>
+                    {% else %}
+                        <a href="#" class="btn btn-primary">Sign Up</a>
+                    {% endif %}
                 </nav>
             </div>
         </header>

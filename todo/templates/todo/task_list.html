@@ -7,16 +7,16 @@
 	{% if tasks %}
 	<ul class="tasks">
 		{% for task in tasks %}
-			<li><a href="{% url 'task_detail' task.id %}" class="{% if task.completed %}completed{% endif %}">{{ task.title }}</a> 
+			<li><a href="{% url 'todo:task_detail' task.id %}" class="{% if task.completed %}completed{% endif %}">{{ task.title }}</a> 
 				<div  class="task-controls">
-				 	<a href="{% url 'task_delete' task.id %}"><i class="bi bi-trash"></i> </a>
-					<a href="{% url 'task_update' task.id %}"><i class="bi bi-pencil-square"></i></a>
+				 	<a href="{% url 'todo:task_delete' task.id %}"><i class="bi bi-trash"></i> </a>
+					<a href="{% url 'todo:task_update' task.id %}"><i class="bi bi-pencil-square"></i></a>
 		        </div>
 		    </li>
 		{% endfor %}
 	{% else %}
 		<p>😎Yeah~ you have no pending tasks!🎉</p>
-        <a href="{% url 'task_create' %}">Creat task</a>
+        <a href="{% url 'todo:task_create' %}">Creat task</a>
 	{% endif %}
 	</ul>
 </div>
