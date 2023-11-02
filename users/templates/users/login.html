@@ -15,7 +15,7 @@
 		{% endfor %}		
 		<input type="submit" value="Sign in" class="btn btn-primary full-width">
 		<hr>
-		<small><p class="text-center">Forgot your password? <a href="#">Reset Password</a></p></small>
+		<small><p class="text-center">Forgot your password? <a href="{% url 'users:password_reset' %}">Reset Password</a></p></small>
 		<small><p class="text-center">No account? <a href="{% url 'users:signup'%}">Create one</a></p></small>
 	</form>
 </div>

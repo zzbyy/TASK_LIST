@@ -126,3 +126,9 @@ STATICFILES_DIRS = [BASE_DIR / "static",]
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_URL = 'login'
+
+# SMTP Settings for sending emails from Django app
+# By setting EMAIL_BACKEND to 'django.core.mail.backends.smtp.EmailBackend',
+# Django output all emails to the console (Shell) instead of sending them. 
+# This is very convenient for testing without an SMTP Server.
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
