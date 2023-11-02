@@ -31,3 +31,13 @@ class TaskCreate(generic.CreateView):
         form.instance.user = self.request.user
         messages.add_message(self.request, messages.SUCCESS, 'Task created!')
         return super().form_valid(form)
+
+
+class TaskUpdate(generic.UpdateView):
+    model = Task
+    fields = ['title', 'description', 'completed']
+    success_url = reverse_lazy('tasks')
+
+    def form_valid(self, form: BaseModelForm) -> HttpResponse:
+        messages.add_message(self.request, messages.SUCCESS, 'Task updated!')
+        return super().form_valid(form)
