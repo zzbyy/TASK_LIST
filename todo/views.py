@@ -1,3 +1,5 @@
+from typing import Any
+from django.db import models
 from django.forms.models import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -16,11 +18,17 @@ def home(request):
 class TaskList(LoginRequiredMixin, generic.ListView):
     model = Task
     context_object_name = 'tasks'
+    
+    def get_queryset(self):
+        return self.model.objects.filter(user=self.request.user)
 
 
 class TaskDetail(LoginRequiredMixin, generic.DetailView):
     model = Task
     context_object_name = 'task'
+    
+    def get_queryset(self):
+        return super().get_queryset().filter(user=self.request.user)
 
 
 class TaskCreate(LoginRequiredMixin, generic.CreateView):
@@ -32,6 +40,9 @@ class TaskCreate(LoginRequiredMixin, generic.CreateView):
         form.instance.user = self.request.user
         messages.add_message(self.request, messages.SUCCESS, 'Task created!')
         return super().form_valid(form)
+    
+    def get_queryset(self):
+        return super().get_queryset().filter(user=self.request.user)
 
 
 class TaskUpdate(LoginRequiredMixin, generic.UpdateView):
@@ -42,6 +53,9 @@ class TaskUpdate(LoginRequiredMixin, generic.UpdateView):
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
         messages.add_message(self.request, messages.SUCCESS, 'Task updated!')
         return super().form_valid(form)
+    
+    def get_queryset(self):
+        return super().get_queryset().filter(user=self.request.user)
 
 
 class TaskDelete(LoginRequiredMixin, generic.DeleteView):
@@ -52,3 +66,6 @@ class TaskDelete(LoginRequiredMixin, generic.DeleteView):
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
         messages.add_message(self.request, messages.SUCCESS, 'Task deleted!')
         return super().form_valid(form)
+    
+    def get_queryset(self):
+        return super().get_queryset().filter(user=self.request.user)
