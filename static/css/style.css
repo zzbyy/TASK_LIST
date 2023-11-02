@@ -104,9 +104,9 @@ a:hover {
 
 .logo {
     padding: 0.5rem;
-    background-color: var(--color-primary);
+    /* background-color: var(--color-primary); */
     text-decoration: none;
-    color: var(--color-white);
+    color: var(--color-primary);
     font-weight: bold;
     text-transform: uppercase;
 }
