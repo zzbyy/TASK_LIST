@@ -24,7 +24,7 @@ class TaskDetail(generic.DetailView):
 
 class TaskCreate(generic.CreateView):
     model = Task
-    fields = '__all__'
+    fields = ['title', 'description']
     success_url = reverse_lazy('tasks')
 
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
