@@ -132,3 +132,9 @@ LOGIN_URL = 'users:login'
 # Django output all emails to the console (Shell) instead of sending them. 
 # This is very convenient for testing without an SMTP Server.
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# The MEDIA_ROOT specifies the directory that stores the uploaded image. 
+# The MEDIA_URL specifies the URL that serves the image files from the 
+# MEDIA_ROOT directory 
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'

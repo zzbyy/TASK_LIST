@@ -17,7 +17,7 @@
                     {% if request.user.is_authenticated %}
                         <a href="{% url 'todo:tasks' %}"><i class="bi bi-list-task"></i> My Tasks</a>
                         <a href="{% url 'todo:task_create' %}"><i class="bi bi-plus"></i> Create Task</a>
-                        <a href="#">Hi {{ request.user | title }}</a>
+                        <a href="{% url 'users:profile' %}" title="Update profile">Hi {{ request.user | title }}</a>
                         <a href="{% url 'users:logout' %}"><i class="bi bi-box-arrow-right"></i> Sign out</a>
                     {% else %}
                         <a href="{% url 'users:login' %}" class="btn btn-outline">Sign in</a>
