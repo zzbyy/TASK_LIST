@@ -125,7 +125,7 @@ STATICFILES_DIRS = [BASE_DIR / "static",]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGIN_URL = 'login'
+LOGIN_URL = 'users:login'
 
 # SMTP Settings for sending emails from Django app
 # By setting EMAIL_BACKEND to 'django.core.mail.backends.smtp.EmailBackend',
