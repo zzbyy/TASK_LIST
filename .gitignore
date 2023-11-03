@@ -2,3 +2,4 @@
 TASK_LIST/__pycache__/
 todo/__pycache__/
 users/__pycache__
+db.sqlite3
